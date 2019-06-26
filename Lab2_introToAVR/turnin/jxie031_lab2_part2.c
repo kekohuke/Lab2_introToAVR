@@ -20,12 +20,10 @@ DDRD = 0xFF; PORTD = 0x00;
 				// Initialize output on PORTB to 0x00
 	unsigned char cntavail;
 	unsigned char temp_A;
-	unsigned char pc7;
 	while(1) {
 		temp_A = PINA;
 		cntavail = ((temp_A & 0x01)==0x01) + ((temp_A & 0x02)==0x02) + ((temp_A & 0x04)==0x04) + ((temp_A & 0x08)==0x08);
-		pc7 = ((temp_A & 0x01)==0x01)&&((temp_A &0x02)==0x02)&&((temp_A &0x04)==0x04)&((temp_A&0x08)==0x08);
-		PORTC = cntavail+(pc7<<7);
+		PORTC = cntavail;
 	
 	}
 	return 1;
