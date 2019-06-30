@@ -1,10 +1,11 @@
-Breakpoint 1 at 0xee: file source/main.c, line 24.
+Breakpoint 1 at 0x18e: file source/main.c, line 54.
 Note: automatically using hardware breakpoints for read-only addresses.
 ======================================================
 Running all tests..."
 
-“PINA:...
+“PINA:...“PINA:...
 	Expected 0x02 
 	PORTB '0x800025:	0x01
-======================================================
+
+	Expected stateB1 but got state:0======================================================
 Quitting: Remote doesn't know how to detach

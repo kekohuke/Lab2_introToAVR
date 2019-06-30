@@ -27,15 +27,20 @@ echo ======================================================\n
 echo Running all tests..."\n\n
 
 
-Test “PINA: 0, 1  => PORTB: 1,2”
-setPINA 0
+Test “PINA: 0  => PORTB: 1”
+set state = stateB0
+setPINA 0x00
 Continue 2
 expectPORTB 0x01
+expect state stateB0
+checkResult
 
-setPINA 1
+Test “PINA: 1  => PORTB: 2”
+set state = stateB0
+setPINA 0x01
 Continue 2
 expectPORTB 0x02
-
+expect state stateB1
 checkResult
 
 
