@@ -17,7 +17,7 @@
 enum States {start,A0remain,A1remain, init,A0press, A0release, A1press, A1release,reset} state;
 unsigned char x;
 void TickFct_Latch(){
-	unsigned char PB = PORTB;
+	unsigned char PB = PORTC;
 	unsigned char A1 = PINA & 0x02;
 	unsigned char A0 = PINA & 0x01;
 	switch(state){
@@ -83,22 +83,22 @@ void TickFct_Latch(){
 	case A1remain:
 		break;
 	case init:
-		PORTB = 7;
+		PORTC = 7;
 		break;
 	case A0press:
 		if(PB < 9)
-			PORTB= PB + 1;
+			PORTC= PB + 1;
 		break;
 	case A0release:
 		break;
 	case A1press:
 		if(PB > 0)
-		PORTB = PB -1;
+		PORTC = PB -1;
 		break;
 	case A1release:
 		break;
 	case reset:
-		PORTB = 0;
+		PORTC = 0;
 		break;
 	default:
 		break;
@@ -108,7 +108,7 @@ void TickFct_Latch(){
 }
 int main(void) {
 DDRA = 0x00; PORTA = 0xFF; // Configure port A's 8 pins as inputs
-DDRB = 0xFF; PORTB = 0x00; // Configure port B's 8 pins as outputs			
+DDRC = 0xFF; PORTC = 0x00; // Configure port B's 8 pins as outputs			
 	state = start;
 	// Initialize output on PORTB to 0x00
 	while(1) {
